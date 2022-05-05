@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- esto es un comentario -->
+
+<head>
+    <!--cabecera. datos del sitio, no visibles-->
+    <meta charset="UTF-8"><!-- compatibilidad con ñ y caracteres especiales-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--configuracion para adpatacion a dispositivos-->
+    <meta name="description"
+        content="Estamos acá para evacuar todas tus dudas y que, cuando llegue el momento, tengas total tranquilidad en el proceso del cambio de tu auto">
+    <meta name="keywords"
+        content="agencia, auto, autos, calidad, experiencia, garantizados, autoluc, contacto, contactate, mensaje">
+    <title>AutoLuc - Contactate con nosotros para evacuar todas tus dudas!</title>
+    <link rel="shortcut icon" href="../images/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/stylesscss.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+
+<body class="container-fluid">
+    <header class="cabeza row">
+        <div class="col-lg-5 col-sm-12 float-start headimage">
+            <a href="../index.html" class="animate__animated animate__zoomInDown"><img src="../images/logo.png"
+                    class="rounded" alt="Logo" title="Logo"></a>
+        </div>
+
+        <div class="col-lg-7 col-sm-12 menudis">
+            <nav class="navbar navbar-expand-lg navbar-light menunav">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="..."></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse menunav" id="navbarNavAltMarkup">
+                        <div class="navbar-nav menulinks">
+                            <a class="nav-link active" aria-current="page" href="../index.html"
+                                style="color: aliceblue;">Home</a>
+                            <a class="nav-link" href="../pages/vende.html" style="color: aliceblue;">Cotiza tu auto</a>
+                            <a class="nav-link" href="../pages/review.html" style="color: aliceblue;">Test</a>
+                            <a class="nav-link" href="../pages/nosotros.html" style="color: aliceblue;">Conocenos</a>
+                            <a class="nav-link" href="../pages/contacto.html" style="color: aliceblue;">Contacto</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main class="row">
+        <div class="cuerpocontacto col-lg-6 col-sm-12">
+            <h2>Preguntas Frecuentes</h2>
+            <div class="accordion cuerpocontacto__acordion" id="pregfrec">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            Que papeles del auto tengo que presentar para poder poner a la venta mi auto?
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                        data-bs-parent="#pregfrec">
+                        <div class="accordion-body">
+                            <p> Vamos a necesitar el título y la cédula verde acompañada del DNI del titular.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Como puedo pagar la compra de mi auto?
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                        data-bs-parent="#pregfrec">
+                        <div class="accordion-body">
+                            <p>Solo aceptamos pago a tráves de transferencia bancaria.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Que pasa si encuentro un defecto en mi auto y quiero devolverlo?
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                        data-bs-parent="#pregfrec">
+                        <div class="accordion-body">
+                            <p> En AutoLuc te damos 10 días para que pruebes tu nuevo auto!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            Que condiciones debe cumplir mi auto para que sea aceptado por AutoLuc para venderlo?
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                        data-bs-parent="#pregfrec">
+                        <div class="accordion-body">
+                            <p>Todos nuestros autos tienen menos de 10 años y menos de 80.000km.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-sm-12 cuerpocontacto">
+            <h2>Contactese con nosotros</h2>
+            <form class="form-control-lg" action="">
+                <label for="nombre"> Ingrese Nombre y Apellido</label>
+                <input type="text" placeholder="Nombre y apellido" name="nombre" class="contacto__inputtext">
+                <label for="mail"> Ingrese email</label>
+                <input type="email" name="mail" placeholder="ingrese email" class="contacto__inputtext">
+                <label for="telefono">Ingrese su número de teléfono</label>
+                <input type="tel" name="telefono" id="" placeholder="Sin el 15" class="contacto__inputtext">
+                <label for="comentario">Déjenos su mensaje a continuación:</label>
+                <textarea name="comentario" id="" cols="30" rows="10" class="contacto__textarea"></textarea>
+                <div class="btn-group-vertical gap-3">
+                    <input type="submit" value="Enviar formulario" class="btn btn-primary">
+                    <input type="reset" value="Resetear formulario" class="btn btn-secondary">
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer class="pie row">
+        <div class="col-md-4 col-sm-12">
+            <h4>Vení a visitarnos</h4>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.593711038266!2d-58.583362184189184!3d-34.63970616691133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc78bf32505fb%3A0xe418ebc82cd24990!2sDr.%20Luis%20G%C3%BCemes%20299-421%2C%20Villa%20Sarmiento%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1648941096780!5m2!1ses!2sar"
+                width="200" height="150" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <h4>Contacto</h4>
+            <p><a href="contacto.html">Dejanos tu consulta!</a></p>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <h4>Estas son nuestras redes</h4>
+            <a href="https://www.facebook.com" target="_blank" class=""><img src="../images/facebook.png"
+                    alt="Logo de Facebook">
+                <a href="https://www.instagram.com" target="_blank" class=""><img src="../images/instagram.png"
+                        alt="Logo de Instagram">
+                    <a href="https://www.twiteer.com" target="_blank" class=""><img src="../images/twitter.png"
+                            alt="Logo de twitter">
+        </div>
+        
+    </footer>
+    <div id="whatsapp-icon" class="whatsapp animate__animated animate__backInDown">
+        <a href="https://api.whatsapp.com/send?phone=+34662681XXX">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/240px-WhatsApp.svg.png"
+                width="50" height="50"></a>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- esto es un comentario -->
+
+<head>
+    <!--cabecera. datos del sitio, no visibles-->
+    <meta charset="UTF-8"><!-- compatibilidad con ñ y caracteres especiales-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--configuracion para adpatacion a dispositivos-->
+    <meta name="description"
+        content="Te guiamos en todo el proceso de venta de tu auto. Vas a tener el control en todo momento del aviso y de las gestiones que realicemos por vos">
+    <meta name="keywords"
+        content="agencia, auto, autos, calidad, experiencia, garantizados, autoluc, usados, vender, venta, vendo, vende">
+    <title>AutoLuc - Te ayudamos a vender tu auto al mejor precio!</title>
+    <link rel="shortcut icon" href="../images/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/stylesscss.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+
+<body class="container-fluid">
+    <header class="cabeza row">
+        <div class="col-lg-5 col-sm-12 float-start headimage">
+            <a href="../index.html" class="animate__animated animate__zoomInDown"><img src="../images/logo.png"
+                    class="rounded" alt="Logo" title="Logo"></a>
+        </div>
+
+        <div class="col-lg-7 col-sm-12 menudis">
+            <nav class="navbar navbar-expand-lg navbar-light menunav">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="..."></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse menunav" id="navbarNavAltMarkup">
+                        <div class="navbar-nav menulinks">
+                            <a class="nav-link active" aria-current="page" href="../index.html"
+                                style="color: aliceblue;">Home</a>
+                            <a class="nav-link" href="../pages/vende.html" style="color: aliceblue;">Cotiza tu auto</a>
+                            <a class="nav-link" href="../pages/review.html" style="color: aliceblue;">Test</a>
+                            <a class="nav-link" href="../pages/nosotros.html" style="color: aliceblue;">Conocenos</a>
+                            <a class="nav-link" href="../pages/contacto.html" style="color: aliceblue;">Contacto</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="vende row">
+            <h2>Te ayudamos a vender tu auto al mejor precio sin moverte de tu casa</h2>
+            <form class="form-control-lg formvende col-xl-5 col-lg-4" action="">
+                <label for="nombre"> Ingrese Nombre y Apellido</label>
+                <input type="text" placeholder="Nombre y apellido" name="nombre" class="formvende__inputtext">
+                <label for="mail"> Ingrese email</label>
+                <input type="email" name="mail" placeholder="ingrese email" class="formvende__inputtext">
+                <label for="telefono">Ingrese su número de teléfono</label>
+                <input type="tel" name="telefono" id="" placeholder="Sin el 15" class="formvende__inputtext">
+                <label for="marca">Marca</label>
+                <select name="marca" id="" class="form-select formvende__select">
+                    <option value="fo">FORD</option>
+                    <option value="vw">VW</option>
+                    <option value="re">RENAULT</option>
+                    <option value="to">TOYOTA</option>
+                </select>
+                <label for="tipo">Tipo</label>
+                <select name="tipo" id="" class="form-select formvende__select">
+                    <option value="co">Coupe</option>
+                    <option value="hb">Hatchback</option>
+                    <option value="se">Sedan</option>
+                    <option value="ca">Camioneta</option>
+                </select>
+                <label for="ptas">Cantidad de Puertas</label>
+                <select name="ptas" id="" class="form-select formvende__select">
+                    <option value="3p">3 ptas</option>
+                    <option value="4p">4 ptas</option>
+                    <option value="5p">5 ptas</option>
+                </select>
+                <label for="comb">Combustible</label>
+                <select name="comb" id="" class="form-select formvende__select">
+                    <option value="na">Nafta</option>
+                    <option value="di">Diesel</option>
+                    <option value="gn">GNC</option>
+                </select>
+                <div class="ordenchecks">
+                    <div class="form-check formvende__check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Aire acondicionado
+                        </label>
+                    </div>
+                    <div class="form-check formvende__check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Techo corredizo
+                        </label>
+                    </div>
+                    <div class="form-check formvende__check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckChecked">
+                            ESP
+                        </label>
+                    </div>
+                </div>
+                <label for="año">Seleccione el año</label>
+                <select name="año" id="" class="form-select formvende__select">
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                    <option value="2016">2016</option>
+                    <option value="2015">2015</option>
+                </select>
+                <label for="km">Ingrese los Kilómetros</label>
+                <input type="number" name="km" id="" class="formvende__inputtext">
+                <label for="foto">Subir foto</label>
+                <input type="file" name="foto" id="" class="formvende__inputtext form-control">
+                <div class="btn-group-vertical gap-2">
+                    <input type="reset" value="Restablecer" class="btn btn-secondary">
+                    <input type="submit" value="Publicar" class="btn btn-primary">
+                </div>
+            </form>
+            <div class="col-xl-7 col-lg-8 rounded-start vende__fantasia">
+                <img src="../images/foto1.jpg" alt="Imagen de fantasia">
+                <img src="../images/colaok.jpg" alt="Imagen de fantasia">
+                <img src="../images/foto4.jpg" alt="Imagen de fantasia">
+                <img src="../images/foto5.jpg" alt="Imagen de fantasia">
+                <img src="../images/foto2.jpg" alt="Imagen de fantasia">
+                <img src="../images/foto3.jpg" alt="Imagen de fantasia">
+            </div>
+        </div>
+        <br />
+    </main>
+    <footer class="pie row">
+        <div class="col-md-4 col-sm-12">
+            <h4>Vení a visitarnos</h4>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.593711038266!2d-58.583362184189184!3d-34.63970616691133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc78bf32505fb%3A0xe418ebc82cd24990!2sDr.%20Luis%20G%C3%BCemes%20299-421%2C%20Villa%20Sarmiento%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1648941096780!5m2!1ses!2sar"
+                width="200" height="150" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <h4>Contacto</h4>
+            <p><a href="contacto.html">Dejanos tu consulta!</a></p>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <h4>Estas son nuestras redes</h4>
+            <a href="https://www.facebook.com" target="_blank" class=""><img src="../images/facebook.png"
+                    alt="Logo de Facebook">
+                <a href="https://www.instagram.com" target="_blank" class=""><img src="../images/instagram.png"
+                        alt="Logo de Instagram">
+                    <a href="https://www.twiteer.com" target="_blank" class=""><img src="../images/twitter.png"
+                            alt="Logo de twitter">
+        </div>
+    </footer>
+    <div id="whatsapp-icon" class="whatsapp animate__animated animate__backInDown">
+        <a href="https://api.whatsapp.com/send?phone=+34662681XXX">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/240px-WhatsApp.svg.png"
+                width="50" height="50"></a>
+    </div>
+
+</body>
+
+</html>
