@@ -1,3 +1,4 @@
+//clases
 class cliente{
     constructor(nom, pcia, marca, busq)
     {
@@ -15,14 +16,15 @@ class cliente{
     }
 }
 
+//codigo central
 let nombre = prompt("Cual es su nombre?");
 let pcia = solProv();
 let marca = solMarca();
 let busqueda = solBusq();
-
 const cliente1 = new cliente(nombre, pcia, marca, busqueda);
 cliente1.mostrarBienvenida();
 
+//Funciones
 function solProv()
 {   
     let pcia = prompt("Ingrese de que provinvia nos visita (Bs.As. - Santa Fe - Cordoba - Mendoza - Otra)")
