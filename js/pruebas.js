@@ -14,6 +14,7 @@ while(isNaN(ingreso))
 suma = 0;
 cantidad = 0;
 
+//proceso datos hasta que se ingrese algo que no sea numerico
 while(!isNaN(ingreso))
     {
         suma = suma + ingreso;
