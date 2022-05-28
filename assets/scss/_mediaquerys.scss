@@ -1,0 +1,146 @@
+
+
+@media screen and (max-width: $tamlap) {
+        .testers{
+                iframe {
+                        width: auto;
+                        height: auto;
+                        }
+        }
+        .busqueda__form{
+                label{
+                        font-size: medium;
+                }
+        }
+        .cuadrado__fantasia{
+                img{
+                        height: 70%;
+                }
+}
+        .tarjetanosotros{
+                width: 20rem;
+        }
+        .busquedaresults__card{
+                width: 18rem;
+        }
+}
+
+@media screen and (max-width: $tampad) {
+        .busqueda__imagen {
+                height: 50px;
+                width: 50px;
+        }
+        .busqueda__barra {
+                margin: map-get($margenes, marg1);
+                width: 90%;
+        }
+        .busqueda__form {
+                text-align: map-get($alinea, inicio);
+                align-items: map-get($alinea, inicio);
+                font-size: medium;
+                select{
+                        margin: map-get($margenes, marg1) map-get($margenes, marg0);
+                }
+        }
+        .busqueda__form__select {
+                font-size: small;
+        }
+        .busquedaresults {
+                flex-direction: row;
+        }
+
+        .busquedaresults__card{
+                width: 17rem;
+        }
+
+        .testers__color{
+                background-color: white;
+                h4{
+                        color: $colorprincipal;
+                }
+                p{
+                        color: black;
+                }
+        }
+        .menudis {
+                @include dflex(flex, row,wrap);
+                justify-content: map-get($alinea , fin );
+                a{
+                font-size: large;
+                padding: 0rem;
+                }
+        }
+        .vende{
+                img{
+                        display: none; 
+                }
+        }
+
+        .headimage {
+                @include dflex(flex, row,wrap);
+                justify-content: map-get($alinea , centro );
+        }
+        
+        .cuadrado__fantasia{
+                        img{
+                                display: none;
+                        }
+        }
+
+        .cabeza {
+                @include dflex(flex, row,wrap);
+                h1 {
+                font-size: xx-large;
+                }
+        }
+        .pie {
+                justify-content: map-get($alinea , centro );
+                justify-items: map-get($alinea , centro );
+                justify-self: map-get($alinea , centro );
+                text-align: map-get($alinea , centro );
+        }
+        .testers{
+                iframe {
+                        width: auto;
+                        height: auto;
+                        }
+        }
+        
+}
+
+@media screen and (max-width: $tamcel) {
+        .busquedaresults {
+                flex-direction: column;
+                align-items: map-get($alinea , centro );
+        }
+        .formvende__select {
+                width: 90%;
+        }
+
+        .formvende__inputtext {
+                width: 90%;
+        }
+        
+        .busquedaresults__card{
+                width: 18rem;
+                
+        }
+        .tarjetanosotros{
+                width: 16rem;
+                }
+        .busqueda__form {
+                text-align: map-get($alinea, centro);
+                align-items: map-get($alinea, centro);
+        }
+        .nosotros {
+                margin: map-get($margenes, marg0);
+        }
+        .cuerpocontacto__acordion{
+                button{
+                        font-size: 50%;
+                }
+                p{
+                        font-size: 90%;
+                }
+}
+}

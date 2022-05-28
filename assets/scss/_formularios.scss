@@ -1,0 +1,37 @@
+.busqueda__form {
+    @include dflex(flex, column, nowrap);
+    justify-content: map-get($alinea , inicio );
+    align-content: flex-end;
+    select{
+        margin: map-get($margenes, marg1) map-get($margenes, marg0);
+    }
+}
+
+.formvende {
+    @include dflex(flex, column,wrap);
+    align-items: map-get($alinea, centro);
+    text-align: map-get($alinea, centro);
+}
+.formvende__inputtext {
+    margin: map-get($margenes, marg1) map-get($margenes, marg5);
+    color: black;
+    font-size: medium;
+    width: 60%;
+}
+.ordenchecks{
+    @include dflex(flex, column,nowrap);
+    justify-content: map-get($alinea , inicio );
+    text-align: map-get($alinea , inicio);
+}
+
+.formvende__check {
+    margin: map-get($margenes, marg1) map-get($margenes, marg0);
+    
+}
+.formvende__select {
+    @extend .formvende__check;
+    font-style: italic;
+    width: 60%;
+    color: black;
+    
+}

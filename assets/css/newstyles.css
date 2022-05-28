@@ -1,0 +1,336 @@
+@import url("https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap");
+
+* {
+        margin: 0;
+        padding: 0;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+.cabeza {
+        background-color: grey;
+}
+
+.cabeza img {
+        margin: 1%;
+}
+
+
+.cabeza h1 {
+        font-family: "Gloria Hallelujah";
+        text-align: end;
+        font-size: 400%;
+        padding-top: 2%;
+        padding-right: 2%;
+}
+
+.menunav {
+        font-weight: bold;
+        justify-content: end;
+        text-align: end;
+}
+
+.busqueda__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-content: flex-end;
+}
+
+.busqueda__barra {
+        margin: 3%;
+        width: 50%;
+}
+
+.busqueda__imagen {
+        width: 150px;
+        height: 150px;
+}
+
+.busquedaresults {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+}
+
+.busquedaresults__card {
+        margin: 3% 0%;
+}
+
+
+
+
+.pie {
+        background-color: grey;
+        color: aliceblue;
+        padding: 0%;
+        text-align: center;
+}
+
+.pie img {
+        width: 30px;
+        height: 30px;
+}
+
+.pie a {
+        text-decoration: none;
+        color: aliceblue;
+        font-size: large;
+}
+
+.pie h4 {
+        padding: 2%;
+}
+
+.whatsapp {
+        position: fixed;
+        right: 10px;
+        bottom: 10px;
+        text-align: center;
+        padding: 3px;
+}
+
+
+.cuerpocontacto {
+
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-items: center;
+        align-items: center;
+        text-align: center;
+}
+
+.cuerpocontacto h2 {
+        margin: 3%;
+        font-size: xx-large;
+}
+
+.cuerpocontacto label {
+        margin: 2%;
+}
+
+.cuerpocontacto form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-content: space-between;
+}
+
+.contacto__inputtext {
+        margin: 2% 0%;
+        font-style: italic;
+        width: 100%;
+}
+
+.contacto__textarea {
+        width: 100%;
+        margin: 3% 0%;
+}
+
+
+
+
+.cuerponos {
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+}
+
+.nosotros {
+        margin: 2%;
+}
+
+.nosotros__img {
+        width: 100%;
+        height: 100%;
+}
+
+.nosotrosopiniones {
+        margin: 5% 0%;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+}
+
+.nosotrostestimoniales {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+        
+}
+
+.cuerponos p {
+        text-align: center;
+}
+
+.nosotros h2 {
+        color: rgb(17, 89, 223);
+        font-weight: bolder;
+}
+
+.cuerponos h2 {
+        text-align: center;
+        margin: 4%;
+}
+
+.vende h2 {
+        text-align: center;
+        margin: 4% 0%;
+}
+
+.formvende {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+
+}
+
+.formvende__inputtext {
+        margin: 1% 5%;
+        color: black;
+        font-size: medium;
+}
+
+.formvende__inputtexttext {
+
+        width: 350px;
+}
+
+.formvende__select {
+        margin: 1% 0%;
+        font-size: smaller;
+        font-style: italic;
+        width: 150px;
+        color: black;
+}
+
+.formvende__check {
+        margin: 1% 0%;
+        font-size: smaller;
+}
+
+
+
+.cuerporeview {
+
+        display: flex;
+        flex-direction: column;
+}
+
+.cuerporeview h2 {
+        text-align: center;
+        margin: 3% 1% 6% 1%;
+}
+
+.testers {
+        display: flex;
+        flex-direction: column;
+}
+
+.testers p {
+        text-align: center;
+        margin: 2% 1%;
+}
+
+.testers h4 {
+        text-align: center;
+        margin: 3% 1%;
+}
+
+.testers a {
+        text-align: center;
+
+}
+
+.testers img {
+        align-self: center;
+}
+
+.testers iframe {
+        align-self: center;
+        margin: 2% 1%;
+}
+
+
+@media screen and (max-width: 500px) {
+
+        .busquedaresults {
+                flex-direction: column;
+        }
+        
+}
+
+
+
+@media screen and (max-width: 770px) {
+        .busqueda__imagen {
+                height: 50px;
+                width: 50px;
+        }
+
+        .busqueda__barra {
+                margin: 1%;
+                width: auto;
+        }
+
+        .busqueda__form {
+                text-align: center;
+                align-items: center;
+                font-size: medium;
+        }
+
+        .busqueda__form__select {
+                font-size: small;
+        }
+
+        .busquedaresults {
+                flex-direction: row;
+        }
+
+        .menudis {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+
+        }
+
+        .menudis a{
+                font-size: small;
+                padding: 0rem;
+        }
+        .headimage {
+                display: flex;
+                justify-content: center;
+        }
+
+        .formvende__inputtexttext {
+
+                width: 250px;
+        }
+
+        .cabeza {
+                display: flex;
+                flex-direction: row;
+
+        }
+
+        .cabeza h1 {
+
+                font-size: xx-large;
+        }
+
+
+        .pie {
+                justify-content: center;
+                justify-items: center;
+                justify-self: center;
+                text-align: center;
+        }
+
+}
