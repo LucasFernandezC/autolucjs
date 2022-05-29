@@ -74,7 +74,15 @@ if (confirm("Desea buscar un vehiculo en nuestra pagina?")) {
         }
         alert("Estos son los autos que tenemos para ofrecerle" + "\n" + resultadoPantalla);
     }
+    else
+    {
+        alert("Muchas gracias por visitar nuestro sitio");
+    }
 }
+else
+    {
+        alert("Muchas gracias por visitar nuestro sitio");
+    }
 
 
 //funciones
