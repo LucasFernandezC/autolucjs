@@ -81,9 +81,8 @@ cargarSelects();
 cargarPantalla(arrayAutos);
 botonSearch = document.getElementById("botonbusqueda");
 botonSearch.onclick = () => filtrarBusqueda();
-
-
-
+botonReset = document.getElementById("botonreset");
+botonReset.onclick=() => cargarPantalla(arrayAutos);
 
 
 
@@ -171,9 +170,7 @@ function cargarPantalla(array){
     
     }
     
-    console.log("llegue");
-    
-    }
+}
 
 function cargarSelects(){
     for (const select of arraySelects) {
@@ -195,8 +192,6 @@ function filtrarBusqueda()
     let techo = document.getElementById("techo");
     let esp = document.getElementById("esp");
    
-console.log(marca.options[marca.selectedIndex].value, tipo.options[tipo.selectedIndex].value ,comb.options[comb.selectedIndex].value, ptas.options[ptas.selectedIndex].value, aire.checked,techo.checked,esp.checked );
-
 
     if(marca.options[marca.selectedIndex].value !="Todos")
         {resultado = resultado.filter((el) => el.marca.toLowerCase() == marca.options[marca.selectedIndex].value.toLowerCase());
