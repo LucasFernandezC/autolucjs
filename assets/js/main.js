@@ -150,7 +150,7 @@ function cargarPantalla(array){
         cardH5.innerText=autos.marca + " " + autos.anio;
         let cardP=document.createElement("p");
         cardP.className="card-text";
-        let detalle = autos.puertas + ", " + autos.combustible ;
+        let detalle = autos.puertas + ", " + autos.combustible + ", " + autos.tipo ;
         if (autos.aire == true){
             detalle += ", aire acondicionado";
         }
