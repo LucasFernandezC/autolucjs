@@ -72,11 +72,9 @@ arraySelects.push(new Selects("comb", "Diesel"));
 arraySelects.push(new Selects("comb", "GNC"));
 
 let carrito = [];
-//let carritoGrabado = JSON.stringify(localStorage.getItem("listacarr"));
 let carritoGrabado = localStorage.getItem("listacarr");
-
 if(carritoGrabado!=null)
-{//acomodarCarrito(carritoGrabado);
+{
     let carritoGrabadoJson= JSON.parse(localStorage.getItem("listacarr"));
     acomodarCarrito(carritoGrabadoJson);
 }
@@ -91,6 +89,7 @@ botonReset.onclick = () => { cargarPantalla(arrayAutos); cargarSelects(arrayAuto
 
 
 //funciones
+//esta funcion se encarga de volver a generar el carrito a partir de lo que recupero del storage
 function acomodarCarrito(recuperado){
     for (const literal of recuperado) {
         console.log(literal);
@@ -102,7 +101,7 @@ function acomodarCarrito(recuperado){
     mostrarCarrito(1);
 }
 
-
+//funcion que agrega productos al array del carrito
 function agregarCarrito(e) {
     
     if (carrito.some((el)=> el.id == e.id))
@@ -116,6 +115,7 @@ function agregarCarrito(e) {
 
 }
 
+//funcion que edita el html para agregar los productos al carrito
 function mostrarCarrito(ejecucion) {
     let carritoDom = document.getElementById("carrito");
     carritoDom.innerHTML="";
@@ -139,6 +139,7 @@ function mostrarCarrito(ejecucion) {
     
 }
 
+//Funcion que genera el html con los vehiculos. se utiliza tanto para la carga inicial como para cuando se aplican filtros
 function cargarPantalla(array) {
     let resultadosFiltro = document.getElementById("resultadosBusqueda");
     resultadosFiltro.innerHTML = "";
@@ -180,7 +181,6 @@ function cargarPantalla(array) {
         cardBody.appendChild(cardH5);
         cardBody.appendChild(cardP);
         cardBody.appendChild(cardButton);
-        //cardBody.appendChild(cardScript);
         card.appendChild(cardImg);
         card.appendChild(cardBody);
         contenedor.appendChild(card);
@@ -193,6 +193,7 @@ function cargarPantalla(array) {
 
 }
 
+//funcion nueva que limpia los select 
 function limpiarSelects() {
     const select = document.getElementsByClassName("form-select");
     for (i = 0; i < select.length; i++) {
@@ -202,7 +203,7 @@ function limpiarSelects() {
 }
 
 
-
+//funcion para la carga de los select de acuerdo a las categorias y al inventario disponible
 function cargarSelects(arrayPantalla) {
     limpiarSelects();
     for (const select of arraySelects) {
@@ -241,6 +242,9 @@ function cargarSelects(arrayPantalla) {
         }
     }
 }
+
+
+//funcion que maneja los filtros en la pagina
 
 function filtrarBusqueda() {
     let resultado = arrayAutos;
