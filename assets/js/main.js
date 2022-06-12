@@ -1,23 +1,16 @@
 //clases
 
 class Cliente {
-    constructor(nom, pcia, marca, busq) {
+    constructor(nom, pcia, marca) {
         this.nom = nom;
         this.pcia = pcia;
         this.marca = marca;
-        
-    }
-    mostrarBienvenida() {
-        alert("Bienvenido a AutoLuc " + this.nom + ", usted nos visita desde " + this.pcia + ", tiene un " + this.marca + "\n" + "COMENCEMOS!");
-        console.log("cliente " + this.nom);
-        console.log("provincia " + this.pcia);
-        console.log("marca " + this.marca);
-        
+
     }
 }
 
 class Auto {
-    constructor(marca,anio, tipo, puertas, combustible,aire,esp,techo,img) {
+    constructor(marca, anio, tipo, puertas, combustible, aire, esp, techo, img, id) {
         this.marca = marca;
         this.anio = parseInt(anio);
         this.tipo = tipo;
@@ -27,12 +20,13 @@ class Auto {
         this.esp = esp;
         this.techo = techo;
         this.img = img;
+        this.id = id;
     }
-    
+
 }
 
 class Selects {
-    constructor(tipo, valor){
+    constructor(tipo, valor) {
         this.tipo = tipo;
         this.valor = valor;
     }
@@ -40,21 +34,21 @@ class Selects {
 
 //codigo central
 const arrayAutos = [];
-arrayAutos.push(new Auto("Ford",2016, "Sedan", "4 ptas", "Diesel",true, true,false,"ford"));
-arrayAutos.push(new Auto("Ford",2018, "Hatchback", "5 ptas", "Nafta",true,false, true,"ford"));
-arrayAutos.push(new Auto("VW", 2013,"Coupe", "3 ptas", "Nafta",true,true,false,"vw"));
-arrayAutos.push(new Auto("Fiat",2010, "Hatchback", "5 ptas", "GNC",false,true,true,"fiat"));
-arrayAutos.push(new Auto("Fiat",2012,"Sedan", "4 ptas", "Diesel",true,false,true,"fiat"));
-arrayAutos.push(new Auto("VW",2016, "Hatchback", "5 ptas", "Nafta",true,false, true,"vw"));
-arrayAutos.push(new Auto("Ford",2017, "Coupe", "3 ptas", "Nafta",true,false,true,"ford"));
-arrayAutos.push(new Auto("VW",2018, "Hatchback", "5 ptas", "GNC",true, true,false,"vw"));
-arrayAutos.push(new Auto("VW",2020, "Sedan", "4 ptas", "Diesel",true,false, true,"vw"));
-arrayAutos.push(new Auto("Fiat",2010, "Hatchback", "5 ptas", "Nafta",true,false,true,"fiat"));
-arrayAutos.push(new Auto("Fiat",2012, "Coupe", "3 ptas", "Nafta",true, true,false,"fiat"));
-arrayAutos.push(new Auto("Ford",2013, "Hatchback", "5 ptas", "GNC",true,false, true,"ford"));
-arrayAutos.push(new Auto("Fiat",2010, "Hatchback", "5 ptas", "Nafta",true,true,true,"fiat"));
-arrayAutos.push(new Auto("Fiat",2012, "Coupe", "3 ptas", "Nafta",true, true,false,"fiat"));
-arrayAutos.push(new Auto("Ford",2013, "Hatchback", "5 ptas", "GNC",true,true, true,"ford"));
+arrayAutos.push(new Auto("Ford", 2016, "Sedan", "4 ptas", "Diesel", true, true, false, "ford", 1));
+arrayAutos.push(new Auto("Ford", 2018, "Hatchback", "5 ptas", "Nafta", true, false, true, "ford", 2));
+arrayAutos.push(new Auto("VW", 2013, "Coupe", "3 ptas", "Nafta", true, true, false, "vw", 3));
+arrayAutos.push(new Auto("Fiat", 2010, "Hatchback", "5 ptas", "GNC", false, true, true, "fiat", 4));
+arrayAutos.push(new Auto("Fiat", 2012, "Sedan", "4 ptas", "Diesel", true, false, true, "fiat", 5));
+arrayAutos.push(new Auto("VW", 2016, "Hatchback", "5 ptas", "Nafta", true, false, true, "vw", 6));
+arrayAutos.push(new Auto("Ford", 2017, "Coupe", "3 ptas", "Nafta", true, false, true, "ford", 7));
+arrayAutos.push(new Auto("VW", 2018, "Hatchback", "5 ptas", "GNC", true, true, false, "vw", 8));
+arrayAutos.push(new Auto("VW", 2020, "Sedan", "4 ptas", "Diesel", true, false, true, "vw", 9));
+arrayAutos.push(new Auto("Fiat", 2010, "Hatchback", "5 ptas", "Nafta", true, false, true, "fiat", 10));
+arrayAutos.push(new Auto("Fiat", 2012, "Coupe", "3 ptas", "Nafta", true, true, false, "fiat", 11));
+arrayAutos.push(new Auto("Ford", 2013, "Hatchback", "5 ptas", "GNC", true, false, true, "ford", 12));
+arrayAutos.push(new Auto("Fiat", 2010, "Hatchback", "5 ptas", "Nafta", true, true, true, "fiat", 13));
+arrayAutos.push(new Auto("Fiat", 2012, "Coupe", "3 ptas", "Nafta", true, true, false, "fiat", 14));
+arrayAutos.push(new Auto("Ford", 2013, "Hatchback", "5 ptas", "GNC", true, true, true, "ford", 15));
 console.log(arrayAutos);
 
 const arraySelects = [];
@@ -77,113 +71,179 @@ arraySelects.push(new Selects("comb", "Nafta"));
 arraySelects.push(new Selects("comb", "Diesel"));
 arraySelects.push(new Selects("comb", "GNC"));
 
-cargarSelects();
+let carrito = [];
+//let carritoGrabado = JSON.stringify(localStorage.getItem("listacarr"));
+let carritoGrabado = localStorage.getItem("listacarr");
+
+if(carritoGrabado!=null)
+{//acomodarCarrito(carritoGrabado);
+    let carritoGrabadoJson= JSON.parse(localStorage.getItem("listacarr"));
+    acomodarCarrito(carritoGrabadoJson);
+}
+cargarSelects(arrayAutos);
 cargarPantalla(arrayAutos);
 botonSearch = document.getElementById("botonbusqueda");
 botonSearch.onclick = () => filtrarBusqueda();
 botonReset = document.getElementById("botonreset");
-botonReset.onclick=() => cargarPantalla(arrayAutos);
-
+botonReset.onclick = () => { cargarPantalla(arrayAutos); cargarSelects(arrayAutos) };
 
 
 
 
 //funciones
-function valida(dato, tipoDato) {
-    if (tipoDato == "marca") {
-        if (dato.toLowerCase() != "ford" && dato.toLowerCase() != "vw" && dato.toLowerCase() != "fiat") {
-            return false;
-        }
-        else {
-            return true;
-        }
+function acomodarCarrito(recuperado){
+    for (const literal of recuperado) {
+        console.log(literal);
+        let temp = new Auto(literal);
+        console.log(temp);
+        carrito.push(temp);
+        
     }
-    else if(tipoDato == "combustible")
-    {
-        if (dato.toLowerCase() != "nafta" && dato.toLowerCase() != "diesel" && dato.toLowerCase() != "gnc") {
-            return false;
-        }
-        else {
-            return true;
-        }
-    }
+    mostrarCarrito(1);
 }
 
-function solProv()
-{   
-    let pcia = prompt("Ingrese de que provinvia nos visita (Bs.As. - Santa Fe - Cordoba - Mendoza - Otra)")
-    while (pcia.toLowerCase() != "bs.as." &&  pcia.toLowerCase() != "santa fe" && pcia.toLowerCase() != "cordoba" && pcia.toLowerCase() != "mendoza" && pcia.toLowerCase() != "otra")
-    {
-        pcia = prompt("La provincia ingresada no es valida. Informe alguna de las siguientes opciones Bs.As. - Santa Fe - Cordoba - Mendoza - Otra")
-    }
-    return pcia;
-}
 
-function solMarca()
-{   
-    let marca = prompt("Ingrese la marca de su vehiculo (Ford - Renault - VW - Fiat - Otra)")
-    while (marca.toLowerCase() != "ford" &&  marca.toLowerCase() != "renault" && marca.toLowerCase() != "vw" && marca.toLowerCase() != "fiat" && marca.toLowerCase() != "otra")
-    {
-        marca = prompt("La marca ingresada no es valida. Informe alguna de las siguientes opciones Ford - Renault - VW - Fiat - Otra")
-    }
-    return marca;
-}
-
-function cargarPantalla(array){
-    let resultadosFiltro = document.getElementById("resultadosBusqueda");
-    resultadosFiltro.innerHTML="";
-    let contenedor;
+function agregarCarrito(e) {
     
+    if (carrito.some((el)=> el.id == e.id))
+    {
+        alert("el producto ya se encuentra entre los favoritos")
+    }
+    else {
+        carrito.push(e);
+        mostrarCarrito();
+    }
+
+}
+
+function mostrarCarrito(ejecucion) {
+    let carritoDom = document.getElementById("carrito");
+    carritoDom.innerHTML="";
+    console.log(carrito);
+    for (const item of carrito) {
+        
+        li = document.createElement("li");
+        button = document.createElement("button");
+        button.class = "dropdown-item";
+        button.innerText = item.marca + item.anio;
+        li.appendChild(button);
+        carritoDom.appendChild(li);
+
+    }
+    if(ejecucion != 1)
+    {
+        let objetoAJson=JSON.stringify(carrito);
+        localStorage.setItem("listacarr",objetoAJson);
+    }
+    
+    
+}
+
+function cargarPantalla(array) {
+    let resultadosFiltro = document.getElementById("resultadosBusqueda");
+    resultadosFiltro.innerHTML = "";
+    let contenedor;
+
     for (const autos of array) {
         contenedor = document.createElement("div");
         let card = document.createElement("article");
         card.className = "card busquedaresults__card";
         let cardImg = document.createElement("img");
-        cardImg.src="assets/images/" + autos.img + ".jpg";
-        cardImg.className= "card-img-top";
-        cardImg.alt= "Auto en venta";
+        cardImg.src = "assets/images/" + autos.img + ".jpg";
+        cardImg.className = "card-img-top";
+        cardImg.alt = "Auto en venta";
         let cardBody = document.createElement("div");
-        cardBody.className="card-body";
+        cardBody.className = "card-body text-center";
         let cardH5 = document.createElement("h5");
-        cardH5.className="card-title titulotarjeta"
-        cardH5.innerText=autos.marca + " " + autos.anio;
-        let cardP=document.createElement("p");
-        cardP.className="card-text";
-        let detalle = autos.puertas + ", " + autos.combustible + ", " + autos.tipo ;
-        if (autos.aire == true){
+        cardH5.className = "card-title titulotarjeta"
+        cardH5.innerText = autos.marca + " " + autos.anio;
+        let cardP = document.createElement("p");
+        cardP.className = "card-text";
+        let detalle = autos.puertas + ", " + autos.combustible + ", " + autos.tipo;
+        if (autos.aire == true) {
             detalle += ", aire acondicionado";
         }
-        if (autos.esp){
-            detalle+=", Control de estabilidad";
+        if (autos.esp) {
+            detalle += ", Control de estabilidad";
         }
-        if (autos.techo){
-            detalle+= ", Techo corredizo";
+        if (autos.techo) {
+            detalle += ", Techo corredizo";
         }
-        cardP.innerText=detalle;
+        cardP.innerText = detalle;
+        let cardButton = document.createElement("a");
+        cardButton.className = "btn btn-primary center";
+        cardButton.id = autos.id;
+        cardButton.text = "Me gusta!";
+        cardScript = document.createElement("script");
+        let script = "let boton = document.getElementById( " + autos.id + " ) boton.onclick =()=> agregarCarrito(" + autos.id + ")";
+        cardScript.innerHTML = script;
         cardBody.appendChild(cardH5);
         cardBody.appendChild(cardP);
+        cardBody.appendChild(cardButton);
+        //cardBody.appendChild(cardScript);
         card.appendChild(cardImg);
         card.appendChild(cardBody);
         contenedor.appendChild(card);
         resultadosFiltro.appendChild(contenedor);
-        console.log("contenedor");
-    
     }
-    
+    array.forEach(auto => {
+        document.getElementById(auto.id).addEventListener("click", function () { agregarCarrito(auto) })
+
+    });
+
 }
 
-function cargarSelects(){
+function limpiarSelects() {
+    const select = document.getElementsByClassName("form-select");
+    for (i = 0; i < select.length; i++) {
+        select[i].innerHTML = "";
+
+    }
+}
+
+
+
+function cargarSelects(arrayPantalla) {
+    limpiarSelects();
     for (const select of arraySelects) {
-        let option = document.createElement("option");
-        option.innerText = select.valor;
-        let contenedorSelect = document.getElementById(select.tipo);
-        contenedorSelect.appendChild(option);
-    }
 
+        if (select.tipo == "marca") {
+            if ((arrayPantalla.some((el) => el.marca == select.valor)) || select.valor == "Todos") {
+                let option = document.createElement("option");
+                option.innerText = select.valor;
+                let contenedorSelect = document.getElementById(select.tipo);
+                contenedorSelect.appendChild(option);
+            }
+        }
+        else if (select.tipo == "tipo") {
+            if ((arrayPantalla.some((el) => el.tipo == select.valor)) || select.valor == "Todos") {
+                let option = document.createElement("option");
+                option.innerText = select.valor;
+                let contenedorSelect = document.getElementById(select.tipo);
+                contenedorSelect.appendChild(option);
+            }
+        }
+        else if (select.tipo == "ptas") {
+            if ((arrayPantalla.some((el) => el.puertas == select.valor)) || select.valor == "Todos") {
+                let option = document.createElement("option");
+                option.innerText = select.valor;
+                let contenedorSelect = document.getElementById(select.tipo);
+                contenedorSelect.appendChild(option);
+            }
+        }
+        else if (select.tipo == "comb") {
+            if ((arrayPantalla.some((el) => el.combustible == select.valor)) || select.valor == "Todos") {
+                let option = document.createElement("option");
+                option.innerText = select.valor;
+                let contenedorSelect = document.getElementById(select.tipo);
+                contenedorSelect.appendChild(option);
+            }
+        }
+    }
 }
 
-function filtrarBusqueda()
-{   let resultado = arrayAutos;
+function filtrarBusqueda() {
+    let resultado = arrayAutos;
     let marca = document.getElementById("marca");
     let tipo = document.getElementById("tipo");
     let comb = document.getElementById("comb");
@@ -191,29 +251,46 @@ function filtrarBusqueda()
     let aire = document.getElementById("aire");
     let techo = document.getElementById("techo");
     let esp = document.getElementById("esp");
-   
 
-    if(marca.options[marca.selectedIndex].value !="Todos")
-        {resultado = resultado.filter((el) => el.marca.toLowerCase() == marca.options[marca.selectedIndex].value.toLowerCase());
-        console.log("entre marca", resultado);};
-    if(tipo.options[tipo.selectedIndex].value!="Todos")
-        {resultado = resultado.filter((el) => el.tipo.toLowerCase() == tipo.options[tipo.selectedIndex].value.toLowerCase());
-            console.log("entre tipo",resultado);};
-    if(comb.options[comb.selectedIndex].value!="Todos")
-        {resultado = resultado.filter((el) => el.combustible.toLowerCase() == comb.options[comb.selectedIndex].value.toLowerCase());
-            console.log("entre comb",resultado);};
-    if(ptas.options[ptas.selectedIndex].value!="Todos")
-        {resultado = resultado.filter((el) => el.puertas.toLowerCase() == ptas.options[ptas.selectedIndex].value.toLowerCase());
-            console.log("entre ptas");};
-    if(aire.checked)
-        {resultado = resultado.filter((el) => el.aire == true);
-            console.log("entre aire");};
-    if(techo.checked)
-        {resultado = resultado.filter((el) => el.techo == true);
-            console.log("entre techo");};
-    if(esp.checked)
-        {resultado = resultado.filter((el) => el.esp == true);
-            console.log("entre esp");};
+
+    if (marca.options[marca.selectedIndex].value != "Todos") {
+        resultado = resultado.filter((el) => el.marca.toLowerCase() == marca.options[marca.selectedIndex].value.toLowerCase());
+        console.log("entre marca", resultado);
+    };
+    if (tipo.options[tipo.selectedIndex].value != "Todos") {
+        resultado = resultado.filter((el) => el.tipo.toLowerCase() == tipo.options[tipo.selectedIndex].value.toLowerCase());
+        console.log("entre tipo", resultado);
+    };
+    if (comb.options[comb.selectedIndex].value != "Todos") {
+        resultado = resultado.filter((el) => el.combustible.toLowerCase() == comb.options[comb.selectedIndex].value.toLowerCase());
+        console.log("entre comb", resultado);
+    };
+    if (ptas.options[ptas.selectedIndex].value != "Todos") {
+        resultado = resultado.filter((el) => el.puertas.toLowerCase() == ptas.options[ptas.selectedIndex].value.toLowerCase());
+        console.log("entre ptas");
+    };
+    if (aire.checked) {
+        resultado = resultado.filter((el) => el.aire == true);
+        console.log("entre aire");
+    };
+    if (techo.checked) {
+        resultado = resultado.filter((el) => el.techo == true);
+        console.log("entre techo");
+    };
+    if (esp.checked) {
+        resultado = resultado.filter((el) => el.esp == true);
+        console.log("entre esp");
+    };
     console.log(resultado);
-    cargarPantalla(resultado);
+
+    if (resultado.length == 0) {
+        alert("Su busqueda no produjo resultados. Se mostraran todos los autos disponibles");
+        cargarPantalla(arrayAutos);
+        cargarSelects(arrayAutos);
+
+    }
+    else {
+        cargarPantalla(resultado);
+        cargarSelects(resultado);
+    }
 }

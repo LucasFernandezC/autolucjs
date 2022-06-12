@@ -15,7 +15,12 @@
     <title>AutoLuc - El portal de compraventa de Autos N°1</title>
     <link rel="shortcut icon" href="assets/images/logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css">
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+
+    <script src="assets/bootstrap/bootstrap.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="assets/css/stylesscss.css">
 </head>
@@ -27,6 +32,15 @@
                     class="rounded" alt="Logo de la empresa" title="Logo"></a>
         </div>
         <div class="col-lg-7 col-sm-12 menudis">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Favoritos
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2" id="carrito">
+
+                </ul>
+            </div>
             <nav class="navbar navbar-expand-lg navbar-light ">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="..."></a>
@@ -107,19 +121,19 @@
             <form action="" class="busqueda__form form-control-lg col-md-3">
                 <label for="marca">Marca</label>
                 <select name="" id="marca" class="form-select">
-                    
+
                 </select>
                 <label for="tipo">Tipo</label>
                 <select name="" id="tipo" class="form-select">
-                    
+
                 </select>
                 <label for="ptas">Cantidad de Puertas</label>
                 <select name="" id="ptas" class="form-select">
-                    
+
                 </select>
                 <label for="comb">Combustible</label>
                 <select name="" id="comb" class="form-select">
-                    
+
                 </select>
                 <div class="ordenchecks">
                     <div class="form-check formvende__check form-check-inline">
@@ -141,15 +155,15 @@
                         </label>
                     </div>
                 </div>
-                    <div class="btn-group-vertical gap-3">
-                        <input type="reset" value="Restablecer" class="btn btn-secondary" id="botonreset">
-                        <input type="" value="Buscar" class="btn btn-primary" id="botonbusqueda">
-                    </div>
-                
+                <div class="btn-group-vertical gap-3">
+                    <input type="reset" value="Restablecer" class="btn btn-secondary" id="botonreset">
+                    <input type="" value="Buscar" class="btn btn-primary" id="botonbusqueda">
+                </div>
+
             </form>
             <article id="results" class="col-md-9">
                 <div id="resultadosBusqueda" class="busquedaresults">
-                    
+
                 </div>
             </article>
         </div>
@@ -172,10 +186,10 @@
                     alt="Logo de Facebook">
                 <a href="https://www.instagram.com" target="_blank" class=""><img src="assets/images/instagram.png"
                         alt="Logo de Instagram">
-                        <a href="https://www.twitter.com" target="_blank" class=""><img src="assets/images/twitter.png"
+                    <a href="https://www.twitter.com" target="_blank" class=""><img src="assets/images/twitter.png"
                             alt="Logo de Twitter">
         </div>
-        
+
     </footer>
     <div id="whatsapp-icon" class="whatsapp animate__animated animate__backInDown">
         <a href="https://api.whatsapp.com/send?phone=+34662681XXX">
