@@ -110,7 +110,7 @@ botonReset.onclick = () => { cargarPantalla(arrayAutos); cargarSelects(arrayAuto
 function acomodarCarrito(recuperado){
     for (const literal of recuperado) {
         
-        cdlet temp = new AutoCarrito(literal);
+        let temp = new AutoCarrito(literal);
         carrito.push(temp);
         
     }
