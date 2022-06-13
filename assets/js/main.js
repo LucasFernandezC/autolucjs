@@ -26,22 +26,6 @@ class Auto {
 
 }
 
-class AutoCarrito {
-    constructor(obj) {
-        this.marca = obj.marca;
-        this.anio = parseInt(obj.anio);
-        this.tipo = obj.tipo;
-        this.puertas = obj.puertas;
-        this.combustible = obj.combustible;
-        this.aire = obj.aire;
-        this.esp = obj.esp;
-        this.techo = obj.techo;
-        this.img = obj.img;
-        this.id = obj.id;
-    }
-    
-}
-
 class Selects {
     constructor(tipo, valor) {
         this.tipo = tipo;
@@ -110,12 +94,13 @@ botonReset.onclick = () => { cargarPantalla(arrayAutos); cargarSelects(arrayAuto
 function acomodarCarrito(recuperado){
     for (const literal of recuperado) {
         
-        let temp = new AutoCarrito(literal);
+        let temp = new Auto(literal.marca, literal.anio, literal.tipo, literal.puertas, literal.combustible, literal.aire, literal.esp, literal.techo, literal.img, literal.id);
         carrito.push(temp);
         
     }
     mostrarCarrito(1);
 }
+
 
 //funcion que agrega productos al array del carrito
 function agregarCarrito(e) {
