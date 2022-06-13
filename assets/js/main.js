@@ -22,7 +22,24 @@ class Auto {
         this.img = img;
         this.id = id;
     }
+    
 
+}
+
+class AutoCarrito {
+    constructor(obj) {
+        this.marca = obj.marca;
+        this.anio = parseInt(obj.anio);
+        this.tipo = obj.tipo;
+        this.puertas = obj.puertas;
+        this.combustible = obj.combustible;
+        this.aire = obj.aire;
+        this.esp = obj.esp;
+        this.techo = obj.techo;
+        this.img = obj.img;
+        this.id = obj.id;
+    }
+    
 }
 
 class Selects {
@@ -75,7 +92,7 @@ let carrito = [];
 let carritoGrabado = localStorage.getItem("listacarr");
 if(carritoGrabado!=null)
 {
-    let carritoGrabadoJson= JSON.parse(localStorage.getItem("listacarr"));
+    let carritoGrabadoJson=JSON.parse(carritoGrabado);
     acomodarCarrito(carritoGrabadoJson);
 }
 cargarSelects(arrayAutos);
@@ -92,9 +109,8 @@ botonReset.onclick = () => { cargarPantalla(arrayAutos); cargarSelects(arrayAuto
 //esta funcion se encarga de volver a generar el carrito a partir de lo que recupero del storage
 function acomodarCarrito(recuperado){
     for (const literal of recuperado) {
-        console.log(literal);
-        let temp = new Auto(literal);
-        console.log(temp);
+        
+        cdlet temp = new AutoCarrito(literal);
         carrito.push(temp);
         
     }
@@ -132,8 +148,8 @@ function mostrarCarrito(ejecucion) {
     }
     if(ejecucion != 1)
     {
-        let objetoAJson=JSON.stringify(carrito);
-        localStorage.setItem("listacarr",objetoAJson);
+        
+        localStorage.setItem("listacarr",JSON.stringify(carrito));
     }
     
     
