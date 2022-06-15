@@ -116,6 +116,15 @@ function agregarCarrito(e) {
 
 }
 
+function sacarCarrito(e) {
+    console.log(carrito);
+    carrito=carrito.filter((el) => e.id != el.id);
+    console.log(carrito);
+    mostrarCarrito();
+
+
+}
+
 //funcion que edita el html para agregar los productos al carrito
 function mostrarCarrito(ejecucion) {
     let carritoDom = document.getElementById("carrito");
@@ -127,7 +136,12 @@ function mostrarCarrito(ejecucion) {
         button = document.createElement("button");
         button.class = "dropdown-item";
         button.innerText = item.marca + item.anio;
+        let carritoButton = document.createElement("a");
+        carritoButton.className = "btn btn-primary center";
+        carritoButton.id = "btnrmv"+item.id;
+        carritoButton.text = "No me gusta!";
         li.appendChild(button);
+        li.appendChild(carritoButton);
         carritoDom.appendChild(li);
 
     }
@@ -136,6 +150,7 @@ function mostrarCarrito(ejecucion) {
         
         localStorage.setItem("listacarr",JSON.stringify(carrito));
     }
+    carrito.forEach(auto =>{document.getElementById("btnrmv"+auto.id).addEventListener("click", function () { sacarCarrito(auto) })});
     
     
 }
@@ -176,9 +191,6 @@ function cargarPantalla(array) {
         cardButton.className = "btn btn-primary center";
         cardButton.id = autos.id;
         cardButton.text = "Me gusta!";
-        cardScript = document.createElement("script");
-        let script = "let boton = document.getElementById( " + autos.id + " ) boton.onclick =()=> agregarCarrito(" + autos.id + ")";
-        cardScript.innerHTML = script;
         cardBody.appendChild(cardH5);
         cardBody.appendChild(cardP);
         cardBody.appendChild(cardButton);
@@ -189,7 +201,7 @@ function cargarPantalla(array) {
     }
     array.forEach(auto => {
         document.getElementById(auto.id).addEventListener("click", function () { agregarCarrito(auto) })
-
+        
     });
 
 }

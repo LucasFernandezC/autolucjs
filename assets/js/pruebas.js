@@ -1,27 +1,35 @@
-let cantidad;
-let suma;
-let ingreso;
-ingreso = parseFloat(prompt("Ingrese la nota"));
+let ingreso = []
+ingreso=prompt("Ingrese la frase");
 
-//valido que al menos la primer carga sea numerica - Restaria validar que el valor ingresado este dentro de la escala establecida (se haria con una funcion que se encargue de eso)
-while(isNaN(ingreso))
+let caracteresIngreso=[];
+let arrayIngreso=[];
+
+for (let i = 0; i < ingreso.length; i++) {
+    if(caracteresIngreso.find(element => element == ingreso[i]) )
     {
-        console.log("el dato ingresado no es un numero" + ingreso);
-        ingreso = parseFloat(prompt("El dato ingresado no es numerico! Ingrese la nota:"));
+        arrayIngreso.push(ingreso[i]);
+    }
+    else
+    {
+        caracteresIngreso.push(ingreso[i]);
+        arrayIngreso.push(ingreso[i]);
         
     }
+    
+}
+contarCaracteres();
+alert("la cantidad total de caracteres es:"+ ingreso.length);
 
-suma = 0;
-cantidad = 0;
 
-//proceso datos hasta que se ingrese algo que no sea numerico
-while(!isNaN(ingreso))
-    {
-        suma = suma + ingreso;
-        cantidad++;
-        console.log("la nota " + cantidad + "es: " + ingreso);
-        ingreso = parseFloat(prompt("Ingrese la nota, para salir ingrese cualquier caracter"));
-        
+//funciones
+function contarCaracteres() 
+{   
+    for (const letra of caracteresIngreso) {
+        console.log(arrayIngreso);
+        let temporal= arrayIngreso.filter((n) => n == letra);
+    
+        alert("la cantidad de " + letra + " que hay es: "+ temporal.length);
     }
-console.log("La cantidad de notas ingresada es: " + cantidad + ". El promedio es:" + (suma/cantidad));
-alert("El promedio de la clase es: " + (suma/cantidad));
+    
+    
+}
