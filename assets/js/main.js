@@ -50,7 +50,7 @@ arrayAutos.push(new Auto("Ford", 2013, "Hatchback", "5 ptas", "GNC", true, false
 arrayAutos.push(new Auto("Fiat", 2010, "Hatchback", "5 ptas", "Nafta", true, true, true, "fiat", 13));
 arrayAutos.push(new Auto("Fiat", 2012, "Coupe", "3 ptas", "Nafta", true, true, false, "fiat", 14));
 arrayAutos.push(new Auto("Ford", 2013, "Hatchback", "5 ptas", "GNC", true, true, true, "ford", 15));
-console.log(arrayAutos);
+
 
 const arraySelects = [];
 arraySelects.push(new Selects("marca", "Todos"));
@@ -73,12 +73,8 @@ arraySelects.push(new Selects("comb", "Diesel"));
 arraySelects.push(new Selects("comb", "GNC"));
 
 let carrito = [];
-let carritoGrabado = localStorage.getItem("listacarr");
-if(carritoGrabado!=null)
-{
-    let carritoGrabadoJson=JSON.parse(carritoGrabado);
-    acomodarCarrito(carritoGrabadoJson);
-}
+let carritoGrabado = JSON.parse(localStorage.getItem("listacarr"));
+carritoGrabado != null && acomodarCarrito(carritoGrabado);
 cargarSelects(arrayAutos);
 cargarPantalla(arrayAutos);
 botonSearch = document.getElementById("botonbusqueda");
@@ -93,10 +89,8 @@ botonReset.onclick = () => { cargarPantalla(arrayAutos); cargarSelects(arrayAuto
 //esta funcion se encarga de volver a generar el carrito a partir de lo que recupero del storage
 function acomodarCarrito(recuperado){
     for (const literal of recuperado) {
-        
         let temp = new Auto(literal.marca, literal.anio, literal.tipo, literal.puertas, literal.combustible, literal.aire, literal.esp, literal.techo, literal.img, literal.id);
         carrito.push(temp);
-        
     }
     mostrarCarrito(1);
 }
@@ -111,15 +105,14 @@ function agregarCarrito(e) {
     }
     else {
         carrito.push(e);
-        mostrarCarrito();
+        mostrarCarrito(0);
     }
 
 }
 
 function sacarCarrito(e) {
-    console.log(carrito);
+    
     carrito=carrito.filter((el) => e.id != el.id);
-    console.log(carrito);
     mostrarCarrito();
 
 
@@ -129,7 +122,6 @@ function sacarCarrito(e) {
 function mostrarCarrito(ejecucion) {
     let carritoDom = document.getElementById("carrito");
     carritoDom.innerHTML="";
-    console.log(carrito);
     for (const item of carrito) {
         
         li = document.createElement("li");
@@ -145,11 +137,7 @@ function mostrarCarrito(ejecucion) {
         carritoDom.appendChild(li);
 
     }
-    if(ejecucion != 1)
-    {
-        
-        localStorage.setItem("listacarr",JSON.stringify(carrito));
-    }
+    ejecucion != 1 ? localStorage.setItem("listacarr",JSON.stringify(carrito)) : "";
     carrito.forEach(auto =>{document.getElementById("btnrmv"+auto.id).addEventListener("click", function () { sacarCarrito(auto) })});
     
     
@@ -160,7 +148,6 @@ function cargarPantalla(array) {
     let resultadosFiltro = document.getElementById("resultadosBusqueda");
     resultadosFiltro.innerHTML = "";
     let contenedor;
-
     for (const autos of array) {
         contenedor = document.createElement("div");
         let card = document.createElement("article");
@@ -177,15 +164,9 @@ function cargarPantalla(array) {
         let cardP = document.createElement("p");
         cardP.className = "card-text";
         let detalle = autos.puertas + ", " + autos.combustible + ", " + autos.tipo;
-        if (autos.aire == true) {
-            detalle += ", aire acondicionado";
-        }
-        if (autos.esp) {
-            detalle += ", Control de estabilidad";
-        }
-        if (autos.techo) {
-            detalle += ", Techo corredizo";
-        }
+        autos.aire == true && (detalle += ", aire acondicionado");
+        autos.esp && (detalle += ", Control de estabilidad");
+        autos.techo && (detalle += ", Techo corredizo" );
         cardP.innerText = detalle;
         let cardButton = document.createElement("a");
         cardButton.className = "btn btn-primary center";
@@ -201,7 +182,6 @@ function cargarPantalla(array) {
     }
     array.forEach(auto => {
         document.getElementById(auto.id).addEventListener("click", function () { agregarCarrito(auto) })
-        
     });
 
 }
@@ -269,36 +249,13 @@ function filtrarBusqueda() {
     let techo = document.getElementById("techo");
     let esp = document.getElementById("esp");
 
-
-    if (marca.options[marca.selectedIndex].value != "Todos") {
-        resultado = resultado.filter((el) => el.marca.toLowerCase() == marca.options[marca.selectedIndex].value.toLowerCase());
-        console.log("entre marca", resultado);
-    };
-    if (tipo.options[tipo.selectedIndex].value != "Todos") {
-        resultado = resultado.filter((el) => el.tipo.toLowerCase() == tipo.options[tipo.selectedIndex].value.toLowerCase());
-        console.log("entre tipo", resultado);
-    };
-    if (comb.options[comb.selectedIndex].value != "Todos") {
-        resultado = resultado.filter((el) => el.combustible.toLowerCase() == comb.options[comb.selectedIndex].value.toLowerCase());
-        console.log("entre comb", resultado);
-    };
-    if (ptas.options[ptas.selectedIndex].value != "Todos") {
-        resultado = resultado.filter((el) => el.puertas.toLowerCase() == ptas.options[ptas.selectedIndex].value.toLowerCase());
-        console.log("entre ptas");
-    };
-    if (aire.checked) {
-        resultado = resultado.filter((el) => el.aire == true);
-        console.log("entre aire");
-    };
-    if (techo.checked) {
-        resultado = resultado.filter((el) => el.techo == true);
-        console.log("entre techo");
-    };
-    if (esp.checked) {
-        resultado = resultado.filter((el) => el.esp == true);
-        console.log("entre esp");
-    };
-    console.log(resultado);
+    marca.options[marca.selectedIndex].value != "Todos" && (resultado = resultado.filter((el) => el.marca.toLowerCase() == marca.options[marca.selectedIndex].value.toLowerCase()));
+    tipo.options[tipo.selectedIndex].value != "Todos" && (resultado = resultado.filter((el) => el.tipo.toLowerCase() == tipo.options[tipo.selectedIndex].value.toLowerCase()));
+    comb.options[comb.selectedIndex].value != "Todos" && (resultado = resultado.filter((el) => el.combustible.toLowerCase() == comb.options[comb.selectedIndex].value.toLowerCase()));
+    ptas.options[ptas.selectedIndex].value != "Todos" && (resultado = resultado.filter((el) => el.puertas.toLowerCase() == ptas.options[ptas.selectedIndex].value.toLowerCase()));
+    aire.checked && (resultado = resultado.filter((el) => el.aire == true));
+    techo.checked && (resultado = resultado.filter((el) => el.techo == true));
+    esp.checked && (resultado = resultado.filter((el) => el.esp == true));
 
     if (resultado.length == 0) {
         alert("Su busqueda no produjo resultados. Se mostraran todos los autos disponibles");
