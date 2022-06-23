@@ -1,38 +1,3 @@
-//clases
-
-class Cliente {
-    constructor(nom, pcia, marca) {
-        this.nom = nom;
-        this.pcia = pcia;
-        this.marca = marca;
-
-    }
-}
-
-class Auto {
-    constructor(marca, anio, tipo, puertas, combustible, aire, esp, techo, img, id) {
-        this.marca = marca;
-        this.anio = parseInt(anio);
-        this.tipo = tipo;
-        this.puertas = puertas;
-        this.combustible = combustible;
-        this.aire = aire;
-        this.esp = esp;
-        this.techo = techo;
-        this.img = img;
-        this.id = id;
-    }
-    
-
-}
-
-class Selects {
-    constructor(tipo, valor) {
-        this.tipo = tipo;
-        this.valor = valor;
-    }
-}
-
 //codigo central
 const arrayAutos = [];
 arrayAutos.push(new Auto("Ford", 2016, "Sedan", "4 ptas", "Diesel", true, true, false, "ford", 1));
@@ -101,10 +66,18 @@ function agregarCarrito(e) {
     
     if (carrito.some((el)=> el.id == e.id))
     {
-        alert("el producto ya se encuentra entre los favoritos")
+        Swal.fire(
+            'El vehiculo ya se encuentra en favoritos',
+            'se dejo en favoritos',
+            'info'
+          )
     }
     else {
         carrito.push(e);
+        Toastify({
+            text: "Auto agregado!",
+            duration: 3000
+            }).showToast();
         mostrarCarrito(0);
     }
 
@@ -113,6 +86,10 @@ function agregarCarrito(e) {
 function sacarCarrito(e) {
     
     carrito=carrito.filter((el) => e.id != el.id);
+    Toastify({
+        text: "Auto olvidado!",
+        duration: 3000
+        }).showToast();
     mostrarCarrito();
 
 
@@ -258,9 +235,14 @@ function filtrarBusqueda() {
     esp.checked && (resultado = resultado.filter((el) => el.esp == true));
 
     if (resultado.length == 0) {
-        alert("Su busqueda no produjo resultados. Se mostraran todos los autos disponibles");
+        Swal.fire(
+            'La busqueda no arrojo resultados',
+            'se cargaran los autos nuevamente',
+            'info'
+          );
         cargarPantalla(arrayAutos);
         cargarSelects(arrayAutos);
+        
 
     }
     else {
