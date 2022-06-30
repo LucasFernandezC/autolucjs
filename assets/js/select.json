@@ -1,0 +1,78 @@
+{
+    "selects": [
+        {
+            "tipo": "marca",
+            "valor":"Todos"
+        },
+        {
+            "tipo": "marca",
+            "valor":"Ford"
+        },
+        {
+            "tipo": "marca",
+            "valor":"Fiat"
+        },
+        {
+            "tipo": "marca",
+            "valor":"VW"
+        },
+        {
+            "tipo": "marca",
+            "valor":"Toyota"
+        },
+        {
+            "tipo": "tipo",
+            "valor":"Todos"
+        },
+        {
+            "tipo": "tipo",
+            "valor":"Hatchback"
+        },
+        {
+            "tipo": "tipo",
+            "valor":"Sedan"
+        },
+        {
+            "tipo":"tipo",
+             "valor":"Camioneta"
+        },
+        {
+            "tipo": "tipo",
+            "valor":"Coupe"
+        },
+        {
+            "tipo": "ptas",
+            "valor":"Todos"
+        },
+        {
+            "tipo": "ptas",
+            "valor":"3 ptas"
+        },
+        {
+            "tipo": "ptas",
+            "valor":"4 ptas"
+        },
+        {
+            "tipo": "ptas",
+            "valor":"5 ptas"
+        },
+        {
+            "tipo": "comb",
+            "valor":"Todos"
+        },
+        {
+            "tipo": "comb",
+            "valor":"Nafta"
+        },
+        {
+            "tipo": "comb",
+            "valor":"Diesel"
+        },
+        {
+            "tipo": "comb",
+            "valor":"GNC"
+        }
+    ]
+    
+}
+
