@@ -1,6 +1,6 @@
 //codigo central
 const arrayAutos = [];
-arrayAutos.push(new Auto("Ford", 2016, "Sedan", "4 ptas", "Diesel", true, true, false, "ford", 1));
+/*arrayAutos.push(new Auto("Ford", 2016, "Sedan", "4 ptas", "Diesel", true, true, false, "ford", 1));
 arrayAutos.push(new Auto("Ford", 2018, "Hatchback", "5 ptas", "Nafta", true, false, true, "ford", 2));
 arrayAutos.push(new Auto("VW", 2013, "Coupe", "3 ptas", "Nafta", true, true, false, "vw", 3));
 arrayAutos.push(new Auto("Fiat", 2010, "Hatchback", "5 ptas", "GNC", false, true, true, "fiat", 4));
@@ -15,7 +15,7 @@ arrayAutos.push(new Auto("Ford", 2013, "Hatchback", "5 ptas", "GNC", true, false
 arrayAutos.push(new Auto("Fiat", 2010, "Hatchback", "5 ptas", "Nafta", true, true, true, "fiat", 13));
 arrayAutos.push(new Auto("Fiat", 2012, "Coupe", "3 ptas", "Nafta", true, true, false, "fiat", 14));
 arrayAutos.push(new Auto("Ford", 2013, "Hatchback", "5 ptas", "GNC", true, true, true, "ford", 15));
-
+*/
 
 const arraySelects = [];
 arraySelects.push(new Selects("marca", "Todos"));
@@ -37,11 +37,20 @@ arraySelects.push(new Selects("comb", "Nafta"));
 arraySelects.push(new Selects("comb", "Diesel"));
 arraySelects.push(new Selects("comb", "GNC"));
 
+fetch("./assets/js/autos.json")
+.then((respuesta)=>respuesta.json())
+.then((data)=>{
+    for (const elemento of data.autos) {
+        arrayAutos.push(new Auto(elemento.marca, elemento.anio, elemento.tipo, elemento.puertas, elemento.combustible, elemento.aire,elemento.esp,elemento.techo, elemento.img, elemento.id));
+    }
+    cargarPantalla(arrayAutos);
+})
+
 let carrito = [];
 let carritoGrabado = JSON.parse(localStorage.getItem("listacarr"));
 carritoGrabado != null && acomodarCarrito(carritoGrabado);
-cargarSelects(arrayAutos);
-cargarPantalla(arrayAutos);
+//cargarSelects(arrayAutos);
+//cargarPantalla(arrayAutos);
 botonSearch = document.getElementById("botonbusqueda");
 botonSearch.onclick = () => filtrarBusqueda();
 botonReset = document.getElementById("botonreset");
