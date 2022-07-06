@@ -1,5 +1,5 @@
 class Auto {
-    constructor(marca, anio, tipo, puertas, combustible, aire, esp, techo, img, id) {
+    constructor(marca, anio, tipo, puertas, combustible, aire, esp, techo, img, id, precio) {
     this.marca = marca;
     this.anio = parseInt(anio);
     this.tipo = tipo;
@@ -10,6 +10,7 @@ class Auto {
     this.techo = techo;
     this.img = img;
     this.id = id;
+    this.precio = precio; 
 }
 
 

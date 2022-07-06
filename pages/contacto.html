@@ -114,13 +114,13 @@
         </div>
         <div class="col-lg-6 col-sm-12 cuerpocontacto">
             <h2>Contactese con nosotros</h2>
-            <form class="form-control-lg" action="">
+            <form class="form-control-lg" action="#" id="form">
                 <label for="nombre"> Ingrese Nombre y Apellido</label>
-                <input type="text" placeholder="Nombre y apellido" name="nombre" class="contacto__inputtext">
+                <input type="name" placeholder="Nombre y apellido" id="nombre" name="nombre" class="contacto__inputtext">
                 <label for="mail"> Ingrese email</label>
-                <input type="email" name="mail" placeholder="ingrese email" class="contacto__inputtext">
+                <input type="email" name="mail" placeholder="ingrese email" id="email" class="contacto__inputtext">
                 <label for="telefono">Ingrese su número de teléfono</label>
-                <input type="tel" name="telefono" id="" placeholder="Sin el 15" class="contacto__inputtext">
+                <input type="tel" name="telefono" id="telefono" placeholder="Sin el 15" class="contacto__inputtext">
                 <label for="comentario">Déjenos su mensaje a continuación:</label>
                 <textarea name="comentario" id="" cols="30" rows="10" class="contacto__textarea"></textarea>
                 <div class="btn-group-vertical gap-3">
@@ -158,7 +158,8 @@
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/240px-WhatsApp.svg.png"
                 width="50" height="50"></a>
     </div>
-
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+    <script src="../assets/js/contacto.js"></script>
 </body>
 
 </html>
