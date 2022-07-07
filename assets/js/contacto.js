@@ -40,7 +40,10 @@ function handleSubmit(e) {
     e.preventDefault();
     validate.isValid == true;
     console.log(validate.isValid);
-
-
-
+    emailjs.init('qO6vBxY3qj1kt6g7l');
+    emailjs.sendForm('default_service', 'template_cz3c588', form);
+    Swal.fire("Consulta enviada!");
+    setTimeout(() => {
+        window.location.replace("contacto.html");
+      }, 2000);
 }

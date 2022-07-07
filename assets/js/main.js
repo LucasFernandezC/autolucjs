@@ -331,7 +331,7 @@ function reservarAuto(auto) {
   imageProd.alt = "Generic image";
   divProd2.appendChild(imageProd);
   let divProd3 = document.createElement("div");
-  divProd3.className = "flex-grow-1 ms-3"; 
+  divProd3.className = "flex-grow-1 ms-3";
   divProd3.innerHTML = `<a href="#!" class="float-end text-black"><i class="fas fa-times"></i></a>
         <h3 class="text-primary">${auto.marca} ${auto.anio} ${auto.combustible}</h3`;
   let divProd4 = document.createElement("div");
@@ -346,25 +346,24 @@ function reservarAuto(auto) {
   divProd1.appendChild(divProd2);
   div7.appendChild(divProd1);
 
-
-divTotal = document.createElement("div");
-divTotal.id = "divTotal";
-divTotal.className = "d-flex justify-content-between p-2 mb-2";
-divTotal.style = "background-color: #e1f5fe;";
-let reserva = (parseInt(auto.precio) * 30) / 100;
-divTotal.innerHTML = `<h4 class="fw-bold mb-0 totales">Valor de reserva:</h4>
+  divTotal = document.createElement("div");
+  divTotal.id = "divTotal";
+  divTotal.className = "d-flex justify-content-between p-2 mb-2";
+  divTotal.style = "background-color: #e1f5fe;";
+  let reserva = (parseInt(auto.precio) * 30) / 100;
+  divTotal.innerHTML = `<h4 class="fw-bold mb-0 totales">Valor de reserva:</h4>
     <h4 class="fw-bold mb-0 totales">${reserva}$</h4>
     `;
-div7.append(divTotal);
+  div7.append(divTotal);
 
-//detalle del metodo de pago
-let div8 = document.createElement("div");
-div8.className = "col-lg-6 px-5 py-4";
-div8.innerHTML = `
+  //detalle del metodo de pago
+  let div8 = document.createElement("div");
+  div8.className = "col-lg-6 px-5 py-4";
+  div8.innerHTML = `
     <h3 class="mb-5 pt-2 text-center fw-bold text-uppercase" style="color:black;">Pago</h3>
                   <form class="mb-5">
                   <div class="form-outline mb-5">
-                  <input type="email" id="typemail" class="form-control form-control-lg" siez="17"
+                  <input type="email" id="email" name="email" id="typemail" class="form-control form-control-lg" siez="17"
                     value="" minlength="5" maxlength="99" />
                   <label class="form-label" for="typeText">Ingrese su mail</label>
                 </div>
@@ -400,22 +399,43 @@ div8.innerHTML = `
                       <a href="index.html" id="volver"><i class="fas fa-angle-left me-2"></i>Volver a la seleccion</a>
                     </h5>`;
 
-div6.appendChild(div7);
-div6.appendChild(div8);
-div5.appendChild(div6);
-div4.appendChild(div5);
-div3.appendChild(div4);
-div2.appendChild(div3);
-div1.appendChild(div2);
-sectionPrincipal.appendChild(div1);
+  div6.appendChild(div7);
+  div6.appendChild(div8);
+  div5.appendChild(div6);
+  div4.appendChild(div5);
+  div3.appendChild(div4);
+  div2.appendChild(div3);
+  div1.appendChild(div2);
+  sectionPrincipal.appendChild(div1);
 
-contenedorCheckout.appendChild(sectionPrincipal);
+  contenedorCheckout.appendChild(sectionPrincipal);
 
-let fin = document.getElementById("fin");
-fin.addEventListener("click", () => {
-  Swal.fire("Usted reservo el auto, recibira los detalles en su mail");
-  //localStorage.clear();
-  setTimeout(() => {
-    window.location.replace("index.html");
-  }, 3000);
-})}
+  let fin = document.getElementById("fin");
+  fin.addEventListener("click", () => {
+    Swal.fire("Usted reservo el auto, recibira los detalles en su mail");
+    let mail = document.getElementById("email").value;
+    
+    var templateParams = {
+      correo: mail,
+      marca: auto.marca,
+      anio: auto.anio,
+      combustible: auto.combustible,
+      precio: auto.precio,
+      reserva: reserva,
+    };
+
+    emailjs.init("qO6vBxY3qj1kt6g7l");
+    emailjs.send("default_service", "template_atamx5h", templateParams).then(
+      function (response) {
+        console.log("SUCCESS!", response.status, response.text);
+      },
+      function (error) {
+        console.log("FAILED...", error);
+      }
+    );
+
+    setTimeout(() => {
+      window.location.replace("index.html");
+    }, 2000);
+  });
+}
