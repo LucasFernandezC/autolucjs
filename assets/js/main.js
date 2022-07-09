@@ -102,7 +102,7 @@ function mostrarCarrito(ejecucion) {
   for (const item of carrito) {
     li = document.createElement("li");
     button = document.createElement("button");
-    button.class = "dropdown-item carrito";
+    button.class = "dropdown-item ";
     button.innerText = item.marca + item.anio;
     let carritoButtonRemove = document.createElement("a");
     carritoButtonRemove.className = "btn btn-danger btn-sm center";
@@ -445,6 +445,7 @@ function reservarAuto(auto) {
           console.log("FAILED...", error);
         }
       );
+      sacarCarrito(auto);
 
       setTimeout(() => {
         window.location.replace("index.html");
