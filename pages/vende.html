@@ -53,35 +53,35 @@
     <main>
         <div class="vende row">
             <h2>Te ayudamos a vender tu auto al mejor precio sin moverte de tu casa</h2>
-            <form class="form-control-lg formvende col-xl-5 col-lg-4" action="">
+            <form class="form-control-lg formvende col-xl-5 col-lg-4" id ="form" action="">
                 <label for="nombre"> Ingrese Nombre y Apellido</label>
-                <input type="text" placeholder="Nombre y apellido" name="nombre" class="formvende__inputtext">
+                <input type="text" placeholder="Nombre y apellido" name="nombre" id="nombre" class="formvende__inputtext">
                 <label for="mail"> Ingrese email</label>
-                <input type="email" name="mail" placeholder="ingrese email" class="formvende__inputtext">
+                <input type="email" name="mail" id="mail" placeholder="ingrese email" class="formvende__inputtext">
                 <label for="telefono">Ingrese su número de teléfono</label>
-                <input type="tel" name="telefono" id="" placeholder="Sin el 15" class="formvende__inputtext">
+                <input type="tel" name="telefono" id="telefono" placeholder="Sin el 15" class="formvende__inputtext">
                 <label for="marca">Marca</label>
-                <select name="marca" id="" class="form-select formvende__select">
+                <select name="marca" id="marca" class="form-select formvende__select">
                     <option value="fo">FORD</option>
                     <option value="vw">VW</option>
                     <option value="re">RENAULT</option>
                     <option value="to">TOYOTA</option>
                 </select>
                 <label for="tipo">Tipo</label>
-                <select name="tipo" id="" class="form-select formvende__select">
+                <select name="tipo" id="tipo" class="form-select formvende__select">
                     <option value="co">Coupe</option>
                     <option value="hb">Hatchback</option>
                     <option value="se">Sedan</option>
                     <option value="ca">Camioneta</option>
                 </select>
                 <label for="ptas">Cantidad de Puertas</label>
-                <select name="ptas" id="" class="form-select formvende__select">
+                <select name="ptas" id="puertas" class="form-select formvende__select">
                     <option value="3p">3 ptas</option>
                     <option value="4p">4 ptas</option>
                     <option value="5p">5 ptas</option>
                 </select>
                 <label for="comb">Combustible</label>
-                <select name="comb" id="" class="form-select formvende__select">
+                <select name="comb" id="combustible" class="form-select formvende__select">
                     <option value="na">Nafta</option>
                     <option value="di">Diesel</option>
                     <option value="gn">GNC</option>
@@ -107,7 +107,7 @@
                     </div>
                 </div>
                 <label for="año">Seleccione el año</label>
-                <select name="año" id="" class="form-select formvende__select">
+                <select name="año" id="anio" class="form-select formvende__select">
                     <option value="2022">2022</option>
                     <option value="2021">2021</option>
                     <option value="2020">2020</option>
@@ -118,9 +118,9 @@
                     <option value="2015">2015</option>
                 </select>
                 <label for="km">Ingrese los Kilómetros</label>
-                <input type="number" name="km" id="" class="formvende__inputtext">
+                <input type="number" name="km" id="km" class="formvende__inputtext">
                 <label for="foto">Subir foto</label>
-                <input type="file" name="foto" id="" class="formvende__inputtext form-control">
+                <input type="file" name="foto" id="foto" class="formvende__inputtext form-control">
                 <div class="btn-group-vertical gap-2">
                     <input type="reset" value="Restablecer" class="btn btn-secondary">
                     <input type="submit" value="Publicar" class="btn btn-primary">
@@ -164,7 +164,11 @@
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/240px-WhatsApp.svg.png"
                 width="50" height="50"></a>
     </div>
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+    <script src="../assets/js/vende.js"></script>
 </body>
 
 </html>

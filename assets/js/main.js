@@ -102,7 +102,7 @@ function mostrarCarrito(ejecucion) {
   for (const item of carrito) {
     li = document.createElement("li");
     button = document.createElement("button");
-    button.class = "dropdown-item";
+    button.class = "dropdown-item carrito";
     button.innerText = item.marca + item.anio;
     let carritoButtonRemove = document.createElement("a");
     carritoButtonRemove.className = "btn btn-danger btn-sm center";
@@ -160,23 +160,34 @@ function cargarPantalla(array) {
     autos.aire == true && (detalle += ", aire acondicionado");
     autos.esp && (detalle += ", Control de estabilidad");
     autos.techo && (detalle += ", Techo corredizo");
+    detalle+= "\n $ " + autos.precio;
     cardP.innerText = detalle;
     let cardButton = document.createElement("a");
-    cardButton.className = "btn btn-primary center";
-    cardButton.id = autos.id;
+    cardButton.className = "btn btn-primary start";
+    cardButton.id = "agregar" + autos.id;
     cardButton.text = "Me gusta!";
+    let cardButtonReserva = document.createElement("a");
+    cardButtonReserva.className = "btn btn-success  end";
+    cardButtonReserva.id = "reservar" + autos.id;
+    cardButtonReserva.text = "Reservar";
     cardBody.appendChild(cardH5);
     cardBody.appendChild(cardP);
     cardBody.appendChild(cardButton);
+    cardBody.appendChild(cardButtonReserva);
     card.appendChild(cardImg);
     card.appendChild(cardBody);
     contenedor.appendChild(card);
     resultadosFiltro.appendChild(contenedor);
   }
   array.forEach((auto) => {
-    document.getElementById(auto.id).addEventListener("click", function () {
+    document.getElementById("agregar" + auto.id).addEventListener("click", function () {
       agregarCarrito(auto);
-    });
+    }
+    );
+    document.getElementById("reservar" + auto.id).addEventListener("click", function () {
+      reservarAuto(auto);
+    }
+    );
   });
 }
 
@@ -412,30 +423,42 @@ function reservarAuto(auto) {
 
   let fin = document.getElementById("fin");
   fin.addEventListener("click", () => {
-    Swal.fire("Usted reservo el auto, recibira los detalles en su mail");
     let mail = document.getElementById("email").value;
-    
-    var templateParams = {
-      correo: mail,
-      marca: auto.marca,
-      anio: auto.anio,
-      combustible: auto.combustible,
-      precio: auto.precio,
-      reserva: reserva,
-    };
+    if (validarCorreo(mail)) {
+      Swal.fire("Usted reservo el auto, recibira los detalles en su mail");
+      
+      var templateParams = {
+        correo: mail,
+        marca: auto.marca,
+        anio: auto.anio,
+        combustible: auto.combustible,
+        precio: auto.precio,
+        reserva: reserva,
+      };
 
-    emailjs.init("qO6vBxY3qj1kt6g7l");
-    emailjs.send("default_service", "template_atamx5h", templateParams).then(
-      function (response) {
-        console.log("SUCCESS!", response.status, response.text);
-      },
-      function (error) {
-        console.log("FAILED...", error);
-      }
-    );
+      emailjs.init("qO6vBxY3qj1kt6g7l");
+      emailjs.send("default_service", "template_atamx5h", templateParams).then(
+        function (response) {
+          console.log("SUCCESS!", response.status, response.text);
+        },
+        function (error) {
+          console.log("FAILED...", error);
+        }
+      );
 
-    setTimeout(() => {
-      window.location.replace("index.html");
-    }, 2000);
+      setTimeout(() => {
+        window.location.replace("index.html");
+      }, 2000);
+    }
+    else{
+      Swal.fire("Ingrese un correo Valido");
+    }
   });
+}
+
+function validarCorreo(correo) {
+  var expReg =
+    /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+  let esMail = expReg.test(correo);
+  return esMail;
 }

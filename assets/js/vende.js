@@ -14,7 +14,7 @@ validate
             value: 30,
         },
     ])
-    .addField('#email', [
+    .addField('#mail', [
         {
             rule: 'required',
             errorMessage: 'Email es requerido',
@@ -33,6 +33,16 @@ validate
             rule: 'required',
             errorMessage: 'El telefono es requerido',
         },
+    ])
+    .addField('#km', [
+        {
+            rule: 'number',
+            errorMessage: 'Ingrese solo numeros para los kilometros',
+        },
+        {
+            rule: 'required',
+            errorMessage: 'Los KM son requeridos',
+        },
     ]);
 form.addEventListener("submit", (e) => handleSubmit(e));
 
@@ -43,9 +53,11 @@ function handleSubmit(e) {
     if(validate.isValid){
     emailjs.init('qO6vBxY3qj1kt6g7l');
     emailjs.sendForm('default_service', 'template_cz3c588', form);
-    Swal.fire('Realice su consulta', 'Consulta enviada!', 'success');
+    //llegue al limite de templates permitidos por mailjs por eso utilizo el de contacto. sino se informarian
+    //todos los datos del auto que se esta solicitando vender
+    Swal.fire('Venda su Auto', 'Solicitud de venta enviada', 'success');
     setTimeout(() => {
-        window.location.replace("contacto.html");
+        window.location.replace("vende.html");
       }, 2000);
     }
     else {

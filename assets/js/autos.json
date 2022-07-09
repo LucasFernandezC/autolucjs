@@ -10,7 +10,7 @@
         "techo": false,
         "img":"ford",
         "id": 1,
-        "precio": 100000
+        "precio": 199000
     },
      {
         "marca":"Ford",
@@ -23,7 +23,7 @@
         "techo":true,
         "img":"ford",
         "id":2,
-        "precio": 100000
+        "precio": 490000
      },   
      {
         "marca":"VW",
@@ -36,7 +36,7 @@
         "techo":false,
         "img":"vw",
         "id":3,
-        "precio": 100000
+        "precio": 120000
      },
      {
         "marca":"Fiat",
@@ -49,7 +49,7 @@
         "techo":true,
         "img":"fiat",
         "id":4,
-        "precio": 100000
+        "precio": 130000
      },
      {
         "marca":"Fiat",
@@ -62,7 +62,7 @@
         "techo":true,
         "img":"fiat",
         "id":5,
-        "precio": 100000
+        "precio": 160000
      },
      {
         "marca":"VW",
@@ -75,7 +75,7 @@
         "techo":true,
         "img":"vw",
         "id":6,
-        "precio": 100000
+        "precio": 180000
      },
      {
         "marca":"Ford",
@@ -88,7 +88,7 @@
         "techo":true,
         "img":"ford",
         "id":7,
-        "precio": 100000
+        "precio": 190000
      },
      {
         "marca":"VW", 
@@ -101,7 +101,7 @@
         "techo":false,
         "img":"vw",
         "id":8,
-        "precio": 100000
+        "precio": 140000
      },
      {
         "marca":"VW",
@@ -114,7 +114,7 @@
         "techo":true,
         "img":"vw",
         "id":9,
-        "precio": 100000
+        "precio": 560000
      },
      {
         "marca":"Fiat",
@@ -127,7 +127,7 @@
         "techo":true,
         "img":"fiat", 
         "id":10,
-        "precio": 100000
+        "precio": 350000
      },
      {
         "marca":"Fiat",
@@ -140,7 +140,7 @@
         "techo":false,
         "img":"fiat",
         "id":11,
-        "precio": 100000
+        "precio": 230000
      },
      {
         "marca":"Ford",
@@ -153,7 +153,7 @@
         "techo":true,
         "img":"ford",
         "id":12,
-        "precio": 100000
+        "precio": 170000
      },
      {
         "marca":"Fiat",
@@ -166,7 +166,7 @@
         "techo":true,
         "img":"fiat",
         "id":13,
-        "precio": 100000
+        "precio": 150000
      },
      {
         "marca":"Fiat",
@@ -179,7 +179,7 @@
         "techo":false,
         "img":"fiat",
         "id":14,
-        "precio": 100000
+        "precio": 300000
      },
      {
         "marca":"Ford",
@@ -192,7 +192,7 @@
         "techo":true,
         "img":"ford", 
         "id":15,
-        "precio": 100000
+        "precio": 200000
      }
     ]
 }
