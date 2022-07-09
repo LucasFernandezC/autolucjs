@@ -306,6 +306,10 @@ function filtrarBusqueda() {
 
 function reservarAuto(auto) {
   //detalle del auto
+  //hago el siguiente filtro porque sino puedo tener almacenado en el carrito informacion obsoleta
+  auto = arrayAutos.find(
+    (el) => el.id == auto.id
+  )
   let contenedorCheckout = document.getElementById("cuerpo");
   contenedorCheckout.innerHTML = "";
   let sectionPrincipal = document.createElement("section");
@@ -445,6 +449,7 @@ function reservarAuto(auto) {
           console.log("FAILED...", error);
         }
       );
+      //una vez que el auto fue reservado saco del mismo a este
       sacarCarrito(auto);
 
       setTimeout(() => {
