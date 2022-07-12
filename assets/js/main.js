@@ -111,46 +111,6 @@ function sacarCarrito(e) {
   (carrito.length > 0) && (origen == 1) ? cargarPantalla(carrito) : (cargarPantalla(arrayAutos), origen =0);
 }
 
-//funcion que edita el html para agregar los productos al carrito
-function mostrarCarrito(ejecucion) {
-  let carritoDom = document.getElementById("carrito");
-  carritoDom.innerHTML = "";
-  for (const item of carrito) {
-    li = document.createElement("li");
-    button = document.createElement("button");
-    button.class = "dropdown-item ";
-    button.innerText = item.marca + item.anio;
-    let carritoButtonRemove = document.createElement("a");
-    carritoButtonRemove.className = "btn btn-danger btn-sm center";
-    carritoButtonRemove.id = "btnrmv" + item.id;
-    carritoButtonRemove.text = "X";
-    let carritoButtonReservar = document.createElement("a");
-    carritoButtonReservar.className = "btn btn-success btn-sm center";
-    carritoButtonReservar.id = "btnres" + item.id;
-    carritoButtonReservar.text = "Reservar";
-    li.appendChild(button);
-    li.appendChild(carritoButtonRemove);
-    li.appendChild(carritoButtonReservar);
-    carritoDom.appendChild(li);
-  }
-  ejecucion != 1
-    ? localStorage.setItem("listacarr", JSON.stringify(carrito))
-    : "";
-  carrito.forEach((auto) => {
-    document
-      .getElementById("btnrmv" + auto.id)
-      .addEventListener("click", function () {
-        sacarCarrito(auto);
-      });
-  });
-  carrito.forEach((auto) => {
-    document
-      .getElementById("btnres" + auto.id)
-      .addEventListener("click", function () {
-        reservarAuto(auto);
-      });
-  });
-}
 
 //Funcion que genera el html con los vehiculos. se utiliza tanto para la carga inicial 
 //como para cuando se aplican filtros y para mostrar los likeados
