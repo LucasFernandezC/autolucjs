@@ -32,14 +32,26 @@ fetch("./assets/js/autos.json")
         cargarSelects(arrayAutos);
       });
   });
+//variable origen me permite saber si el like viene desde el carrito o desde la pagina principal 
+//para mantenerme siempre en esta
 
+let origen = 0;
 let carrito = [];
 let carritoGrabado = JSON.parse(localStorage.getItem("listacarr"));
 carritoGrabado != null && acomodarCarrito(carritoGrabado);
-//cargarSelects(arrayAutos);
-//cargarPantalla(arrayAutos);
 botonSearch = document.getElementById("botonbusqueda");
-botonSearch.onclick = () => filtrarBusqueda();
+botonSearch.onclick = () => {origen = 0;
+  filtrarBusqueda();
+}
+botonLiked = document.getElementById("liked");
+
+
+botonLiked.onclick = () => {origen = 1 ;
+  carrito.length > 0 ? (cargarPantalla(carrito), Toastify({
+    text: "Mostrando Likeados",
+    duration: 3000,
+  }).showToast()) : (cargarPantalla(arrayAutos), console.log("no hay autos en el carrito") );
+}
 botonReset = document.getElementById("botonreset");
 botonReset.onclick = () => {
   cargarPantalla(arrayAutos);
@@ -65,7 +77,7 @@ function acomodarCarrito(recuperado) {
     );
     carrito.push(temp);
   }
-  mostrarCarrito(1);
+  //mostrarCarrito(1);
 }
 
 //funcion que agrega productos al array del carrito
@@ -78,11 +90,13 @@ function agregarCarrito(e) {
     );
   } else {
     carrito.push(e);
+    localStorage.setItem("listacarr", JSON.stringify(carrito));
+    cargarPantalla(arrayAutos);
     Toastify({
       text: "Auto agregado!",
       duration: 3000,
     }).showToast();
-    mostrarCarrito(0);
+    //mostrarCarrito(0);
   }
 }
 
@@ -92,7 +106,9 @@ function sacarCarrito(e) {
     text: "Auto olvidado!",
     duration: 3000,
   }).showToast();
-  mostrarCarrito();
+  
+  localStorage.setItem("listacarr", JSON.stringify(carrito));
+  (carrito.length > 0) && (origen == 1) ? cargarPantalla(carrito) : (cargarPantalla(arrayAutos), origen =0);
 }
 
 //funcion que edita el html para agregar los productos al carrito
@@ -136,7 +152,8 @@ function mostrarCarrito(ejecucion) {
   });
 }
 
-//Funcion que genera el html con los vehiculos. se utiliza tanto para la carga inicial como para cuando se aplican filtros
+//Funcion que genera el html con los vehiculos. se utiliza tanto para la carga inicial 
+//como para cuando se aplican filtros y para mostrar los likeados
 function cargarPantalla(array) {
   let resultadosFiltro = document.getElementById("resultadosBusqueda");
   resultadosFiltro.innerHTML = "";
@@ -165,7 +182,7 @@ function cargarPantalla(array) {
     let cardButton = document.createElement("a");
     cardButton.className = "btn btn-primary start";
     cardButton.id = "agregar" + autos.id;
-    cardButton.text = "Me gusta!";
+    carrito.some((el) => el.id == autos.id) ? cardButton.text = "Olvidar" : cardButton.text = "Me gusta!";
     let cardButtonReserva = document.createElement("a");
     cardButtonReserva.className = "btn btn-success  end";
     cardButtonReserva.id = "reservar" + autos.id;
@@ -181,7 +198,7 @@ function cargarPantalla(array) {
   }
   array.forEach((auto) => {
     document.getElementById("agregar" + auto.id).addEventListener("click", function () {
-      agregarCarrito(auto);
+      carrito.some((el) => el.id == auto.id) ? sacarCarrito(auto) : agregarCarrito(auto);
     }
     );
     document.getElementById("reservar" + auto.id).addEventListener("click", function () {

@@ -258,7 +258,10 @@
     color: #314ff7;
     font-weight: bold;
     text-align: center; }
-  
+
+    .corazon{
+      width: 10%;
+    }
 
 @media screen and (max-width: 1024px) {
   .testers iframe {
